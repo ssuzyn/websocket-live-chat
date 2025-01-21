@@ -7,22 +7,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
     <link rel="stylesheet" href="main.css">
-    <script src="app.js"></script>
 </head>
 <body>
 <div class="chat-container">
     <div class="chat-header">
         <h2>실시간 채팅</h2>
+        <div class="connection-status">
+            <div class="status-indicator"></div>
+            <span class="status-text">연결 중...</span>
+        </div>
     </div>
-    <div id="conversation" class="chat-messages">
-        <div id="greetings" class="messages-list">
-            <!-- Messages will be inserted here -->
+    <div class="username-input">
+        <input type="text" id="username" placeholder="사용자 이름을 입력하세요">
+        <button id="set-username">확인</button>
+    </div>
+    <div id="conversation" class="chat-messages" style="display: none;">
+        <div id="messages" class="messages-list">
         </div>
     </div>
     <div class="chat-input">
-        <input type="text" id="name" placeholder="메시지를 입력하세요">
-        <button id="send">전송</button>
+        <input type="text" id="message" placeholder="메시지를 입력하세요" disabled>
+        <button id="send" disabled>전송</button>
     </div>
 </div>
+<script src="app.js"></script>
 </body>
 </html>

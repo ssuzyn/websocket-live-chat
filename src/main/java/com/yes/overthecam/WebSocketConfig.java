@@ -12,12 +12,13 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config){
-        config.enableSimpleBroker("/topic");
-        config.setApplicationDestinationPrefixes("/app");
+        config.enableSimpleBroker("/subscribe"); // 구독 주소의 prefix를 지정
+        config.setApplicationDestinationPrefixes("/publish"); // 메시지 발행 주소의 prefixfmf 지정
     }
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/gs-guide-websocket");
+        registry.addEndpoint("/ws-connect") // 초기 핸드셰이크 과정에서 사용할 endpoint 지정
+            .setAllowedOrigins("*"); // CORS 허용 설정
     }
 }

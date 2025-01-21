@@ -1,13 +1,15 @@
-package com.yes.overthecam;
+package com.yes.overthecam.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Greeting {
+public class HelloMessage {
 
-    private String content;
+    private String name;
 }

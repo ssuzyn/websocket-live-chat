@@ -1,20 +1,20 @@
 package com.yes.overthecam;
 
+import com.yes.overthecam.dto.ChatMessageRequest;
+import com.yes.overthecam.dto.ChatMessageResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.util.HtmlUtils;
+import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
-@Controller
+@RestController
 public class ChattingController {
 
-    @MessageMapping("/hello") // 메시지가 대상 "/hello"에 전송되면 해당 메서드가 호출되도록 보장
-    @SendTo("/topic/greetings") // 모든 구독자에게 브로드 캐스트
-    public Greeting greeting(HelloMessage message) throws Exception{
-        log.info(message.toString());
-        Thread.sleep(1000); // simulated delay
-        return new Greeting("안녕하세요, " + HtmlUtils.htmlEscape(message.getName()) + "!");
+    @MessageMapping("/chat") // "/chat" 주소로 발행된 메시지를
+    @SendTo("/subscribe/chat") // "/subscribe/chat"를 구독한 사용자에게 전달
+    public ChatMessageResponse sendMessage(ChatMessageRequest request) throws Exception{
+        log.info(request.toString());
+        return new ChatMessageResponse(request.getUsername(), request.getContent());
     }
 }
