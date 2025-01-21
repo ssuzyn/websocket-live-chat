@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실시간 채팅</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <script src="app.js"></script>
+</head>
+<body>
+<div class="chat-container">
+    <div class="chat-header">
+        <h2>실시간 채팅</h2>
+    </div>
+    <div id="conversation" class="chat-messages">
+        <div id="greetings" class="messages-list">
+            <!-- Messages will be inserted here -->
+        </div>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="name" placeholder="메시지를 입력하세요">
+        <button id="send">전송</button>
+    </div>
+</div>
+</body>
+</html>
