@@ -12,10 +12,17 @@
 <div class="chat-container">
     <div class="chat-header">
         <h2>실시간 채팅</h2>
+        <div class="room-info">
+            채팅방: <span id="current-room">미입장</span>
+        </div>
         <div class="connection-status">
             <div class="status-indicator"></div>
             <span class="status-text">연결 중...</span>
         </div>
+    </div>
+    <div class="room-input">
+        <input type="text" id="room-id" placeholder="채팅방 번호를 입력하세요">
+        <button id="enter-room">입장</button>
     </div>
     <div class="username-input">
         <input type="text" id="username" placeholder="사용자 이름을 입력하세요">
