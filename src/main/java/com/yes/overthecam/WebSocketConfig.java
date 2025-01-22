@@ -12,8 +12,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config){
-        config.enableSimpleBroker("/subscribe"); // 구독 주소의 prefix를 지정
-        config.setApplicationDestinationPrefixes("/publish"); // 메시지 발행 주소의 prefixfmf 지정
+        config.enableSimpleBroker("/subscribe"); // 구독(브로드캐스트)용 prefix
+        config.setApplicationDestinationPrefixes("/publish"); // 메시지 수신용 prefix
     }
 
     @Override
